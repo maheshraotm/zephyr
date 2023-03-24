@@ -215,6 +215,7 @@ static const struct svc_driver_api api = {
 	.sip_svc_plat_free_async_memory = intel_sip_smc_plat_free_async_memory};
 
 #if DT_HAS_COMPAT_STATUS_OKAY(DT_DRV_COMPAT)
+SIP_SVC_CONTROLLER_DEFINE(0, DT_PROP(DT_SIP_SMC, method), DEVICE_DT_GET(DT_SIP_SMC));
 DEVICE_DT_DEFINE(DT_SIP_SMC, arm_sip_smc_init, NULL, NULL, NULL, POST_KERNEL,
 		 CONFIG_ARM_SIP_SVC_DRIVER_INIT_PRIORITY, &api);
 #endif
